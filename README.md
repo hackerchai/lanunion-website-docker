@@ -1,7 +1,6 @@
 # 重庆大学蓝盟官方网站后端docker
 
 ## 用法
-----
 
 clone项目后，直接使用
 ````bash
@@ -11,7 +10,6 @@ clone项目后，直接使用
 **具体相关配置请自行查阅文档，请勿随意修改nginx配置，以免thinkphp出现错误**
 
 ## 原项目说明
-----
 
 DNMP（Docker + Nginx + MySQL + PHP7/5 + Redis）是一款全功能的**LNMP一键安装程序**。
 
