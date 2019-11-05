@@ -2,5 +2,5 @@
 .DS_Store
 nohup.out
 www/*
-www/localhost/
+www/localhost/*
 logs/*
