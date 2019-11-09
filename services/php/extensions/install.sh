@@ -353,7 +353,7 @@ fi
 
 if [[ -z "${EXTENSIONS##*,varnish,*}" ]]; then
     echo "---------- Install varnish ----------"
-	apk add --no-cache varnish
+	apk add --no-cache varnish-dev
     printf "\n" | pecl install varnish
     docker-php-ext-enable varnish
 fi
@@ -508,4 +508,20 @@ if [[ -z "${EXTENSIONS##*,zip,*}" ]]; then
     docker-php-ext-configure zip --with-libzip=/usr/include
 
 	docker-php-ext-install ${MC} zip
+fi
+
+if [[ -z "${EXTENSIONS##*,xhprof,*}" ]]; then
+    echo "---------- Install XHProf ----------"
+
+    isPhpVersionGreaterOrEqual 7 0
+
+    if [[ "$?" = "1" ]]; then
+        mkdir xhprof \
+        && tar -xf xhprof-2.1.0.tgz -C xhprof --strip-components=1 \
+        && ( cd xhprof/extension/ && phpize && ./configure  && make ${MC} && make install ) \
+        && docker-php-ext-enable xhprof
+    else
+       echo "---------- PHP Version>= 7.0----------"
+    fi
+
 fi

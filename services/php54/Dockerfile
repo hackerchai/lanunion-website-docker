@@ -23,7 +23,8 @@ RUN curl -o /usr/bin/composer https://mirrors.aliyun.com/composer/composer.phar 
     && chmod +x /usr/bin/composer
 ENV COMPOSER_HOME=/tmp/composer
 
-#RUN chmod -R 777 /www
+RUN pecl install xdebug-2.4.1 \
+    && docker-php-ext-enable xdebug
 
 
 # php image's www-data user uid & gid are 82, change them to 1000 (primary user)
