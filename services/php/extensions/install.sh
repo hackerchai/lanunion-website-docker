@@ -52,7 +52,7 @@ isPhpVersionGreaterOrEqual()
 # Install extension from package file(.tgz),
 # For example:
 #
-# installExtensionFromTgz redis-4.1.1
+# installExtensionFromTgz redis-5.0.2
 #
 # Param 1: Package name with version
 # Param 2: enable options
@@ -429,7 +429,7 @@ if [[ -z "${EXTENSIONS##*,redis,*}" ]]; then
 fi
 
 if [[ -z "${EXTENSIONS##*,apcu,*}" ]]; then
-    echo "---------- Install redis ----------"
+    echo "---------- Install apcu ----------"
     installExtensionFromTgz apcu-5.1.17
 fi
 
